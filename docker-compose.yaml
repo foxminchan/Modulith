@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-CU12-GDR1-ubuntu-22.04
+    container_name: sqlserver
+    ports:
+      - "1433:1433"
+    restart: always
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "P@ssw0rd"
+    volumes:
+      - ./vol/sqlserver:/var/opt/mssql/data
+    networks:
+      - modulith-network
+
+  cache:
+    image: ghcr.io/microsoft/garnet
+    container_name: garnet
+    ulimits:
+      memlock: -1
+    ports:
+      - "6379:6379"
+    restart: always
+    volumes:
+      - ./vol/garnet:/data
+    networks:
+      - modulith-network
+
+  storage:
+    image: mcr.microsoft.com/azure-storage/azurite:3.29.0
+    container_name: azurite
+    ports:
+      - 10000-10002:10000-10002
+    restart: always
+    volumes:
+      - ./vol/azurite:/data
+    networks:
+      - modulith-network
+
+networks:
+  modulith-network:
+    driver: bridge
