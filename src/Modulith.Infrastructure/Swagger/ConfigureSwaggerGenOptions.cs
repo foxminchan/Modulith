@@ -17,7 +17,7 @@ public sealed class ConfigureSwaggerGenOptions(IApiVersionDescriptionProvider pr
             options.SwaggerDoc(description.GroupName,
                 new()
                 {
-                    Title = $"E-Shop API {description.ApiVersion}",
+                    Title = $"LegoShop API {description.ApiVersion}",
                     Description = "A simple modular monolith project",
                     Version = description.ApiVersion.ToString(),
                     Contact = new() { Name = "Nhan Nguyen", Email = "nguyenxuannhan407@gmail.com" },

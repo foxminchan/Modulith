@@ -4,8 +4,8 @@ using System.Text.Json;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Modulith.Domain.Events;
-using Modulith.Domain.Shared;
+using Modulith.SharedKernel.Events;
+using Modulith.SharedKernel.Shared;
 
 namespace Modulith.Persistence;
 

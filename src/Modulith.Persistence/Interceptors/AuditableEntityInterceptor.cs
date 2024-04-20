@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Modulith.Domain.Entities;
+using Modulith.SharedKernel.Entities;
 
 namespace Modulith.Persistence.Interceptors;
 

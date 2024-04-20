@@ -2,29 +2,33 @@ version: "3.9"
 
 services:
   db:
-    image: mcr.microsoft.com/mssql/server:2022-CU12-GDR1-ubuntu-22.04
-    container_name: sqlserver
+    image: postgres:16.2-alpine3.19
+    container_name: postgres-db
     ports:
-      - "1433:1433"
-    restart: always
+      - 5432:5432
     environment:
-      ACCEPT_EULA: "Y"
-      SA_PASSWORD: "P@ssw0rd"
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/data/postgres
+    command:
+      - bash
+      - -c
+      - docker-entrypoint.sh -c config_file=/etc/postgresql/postgres.conf -c hba_file=/etc/postgresql/pg_hba.conf
     volumes:
-      - ./vol/sqlserver:/var/opt/mssql/data
+      - ./vol/postgres:/data/postgres
+      - ./docker/postgresql:/etc/postgresql
+    restart: unless-stopped
     networks:
       - modulith-network
 
   cache:
-    image: ghcr.io/microsoft/garnet
-    container_name: garnet
-    ulimits:
-      memlock: -1
+    image: redis/redis-stack:7.2.0-v10
+    container_name: redis-stack
     ports:
-      - "6379:6379"
-    restart: always
+      - 6378:6379
     volumes:
-      - ./vol/garnet:/data
+      - ./vol/redis:/data
+    restart: unless-stopped
     networks:
       - modulith-network
 
@@ -33,6 +37,7 @@ services:
     container_name: azurite
     ports:
       - 10000-10002:10000-10002
+    command: "azurite-blob --blobHost 0.0.0.0 -l /data --silent"
     restart: always
     volumes:
       - ./vol/azurite:/data

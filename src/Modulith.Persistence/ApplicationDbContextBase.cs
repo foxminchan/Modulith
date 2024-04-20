@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
 using Microsoft.EntityFrameworkCore;
-using Modulith.Domain.Entities;
-using Modulith.Domain.Events;
+using Modulith.SharedKernel.Entities;
+using Modulith.SharedKernel.Events;
 
 namespace Modulith.Persistence;
 

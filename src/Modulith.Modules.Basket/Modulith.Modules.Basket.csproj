@@ -1,7 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup>
-    <ProjectReference Include="..\Modulith.Modules.Basket.Contracts\Modulith.Modules.Basket.Contracts.csproj" />
-    <ProjectReference Include="..\Modulith.Modules.User.Contracts\Modulith.Modules.User.Contracts.csproj" />
-    <ProjectReference Include="..\Modulith.Persistence\Modulith.Persistence.csproj" />
-  </ItemGroup>
-</Project>

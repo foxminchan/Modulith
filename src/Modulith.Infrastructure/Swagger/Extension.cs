@@ -2,7 +2,6 @@
 using Asp.Versioning.ApiExplorer;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
@@ -22,7 +21,7 @@ public static class Extension
                 c.SchemaFilter<SmartEnumSchemaFilter>();
             });
 
-    public static IApplicationBuilder UseOpenApi(this WebApplication app, IConfiguration configuration)
+    public static IApplicationBuilder UseOpenApi(this WebApplication app)
     {
         app.UseSwagger(c => c.PreSerializeFilters.Add((swagger, httpReq) =>
         {
@@ -53,7 +52,7 @@ public static class Extension
                 c.SwaggerEndpoint(url, name);
             }
 
-            c.DocumentTitle = "E-Shop API";
+            c.DocumentTitle = "LegoShop";
             c.DisplayRequestDuration();
             c.EnableFilter();
             c.EnableValidator();

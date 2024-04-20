@@ -26,21 +26,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AspNetCore.HealthChecks.Redis" />
-		<PackageReference Include="AspNetCore.HealthChecks.SqlServer" />
-		<PackageReference Include="AspNetCore.HealthChecks.Azure.Storage.Files.Shares" />
-		<PackageReference Include="AspNetCore.HealthChecks.UI" />
-		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" />
-		<PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Polly" />
 		<PackageReference Include="Scrutor" />
 		<PackageReference Include="FluentValidation" />
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
 		<PackageReference Include="Swashbuckle.AspNetCore" />
 		<PackageReference Include="MicroElements.Swashbuckle.FluentValidation" />
+		<PackageReference Include="Azure.Storage.Blobs" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -51,7 +43,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Modulith.Domain\Modulith.Domain.csproj" />
+		<ProjectReference Include="..\Modulith.SharedKernel\Modulith.SharedKernel.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

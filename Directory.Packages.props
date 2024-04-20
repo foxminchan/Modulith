@@ -3,6 +3,7 @@
 		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 	</PropertyGroup>
 	<ItemGroup>
+		<PackageVersion Include="Azure.Storage.Blobs" Version="12.20.0-beta.2" />
 		<PackageVersion Include="Asp.Versioning.Http" Version="8.1.0" />
 		<PackageVersion Include="Asp.Versioning.Mvc" Version="8.1.0" />
 		<PackageVersion Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
@@ -12,11 +13,12 @@
 		<PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore"
 		                Version="8.0.4" />
 		<PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
-		<PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
 		<PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4" />
 		<PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4" />
 		<PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
-		<PackageVersion Include="EntityFrameworkCore.Exceptions.SqlServer" Version="8.1.2" />
+		<PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
+		<PackageVersion Include="EFCore.NamingConventions" Version="8.0.3" />
+		<PackageVersion Include="EntityFrameworkCore.Exceptions.PostgreSQL" Version="8.1.2" />
 		<PackageVersion Include="Serilog.AspNetCore" Version="8.0.1" />
 		<PackageVersion Include="Serilog.Exceptions" Version="8.4.0" />
 		<PackageVersion Include="Serilog.Sinks.Async" Version="1.5.0" />
@@ -41,12 +43,19 @@
 		<PackageVersion Include="OpenTelemetry.Exporter.Prometheus.AspNetCore" Version="1.4.0-rc.4" />
 		<PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.8.1" />
 		<PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.8.1" />
-		<PackageVersion Include="AspNetCore.HealthChecks.Redis" Version="8.0.1" />
-		<PackageVersion Include="AspNetCore.HealthChecks.SqlServer" Version="8.0.2" />
-		<PackageVersion Include="AspNetCore.HealthChecks.UI" Version="8.0.1" />
-		<PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
-		<PackageVersion Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="8.0.1" />
-		<PackageVersion Include="AspNetCore.HealthChecks.Azure.Storage.Files.Shares"
-		                Version="8.0.1" />
+		<PackageVersion Include="xunit" Version="2.7.1" />
+		<PackageVersion Include="xunit.runner.visualstudio" Version="2.5.8" />
+		<PackageVersion Include="XunitContext" Version="3.3.2" />
+		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+		<PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.4" />
+		<PackageVersion Include="coverlet.collector" Version="6.0.2" />
+		<PackageVersion Include="FluentAssertions" Version="6.12.0" />
+		<PackageVersion Include="ReportGenerator" Version="5.2.4" />
+		<PackageVersion Include="AutoBogus.NSubstitute" Version="2.13.1" />
+		<PackageVersion Include="NSubstitute.Analyzers.CSharp" Version="1.0.17" />
+		<PackageVersion Include="Testcontainers" Version="3.8.0" />
+		<PackageVersion Include="Testcontainers.PostgreSql" Version="3.8.0" />
+		<PackageVersion Include="Testcontainers.Redis" Version="3.8.0" />
+		<PackageVersion Include="Testcontainers.Azurite" Version="3.8.0" />
 	</ItemGroup>
 </Project>

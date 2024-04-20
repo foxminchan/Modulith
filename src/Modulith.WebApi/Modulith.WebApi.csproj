@@ -15,10 +15,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Modulith.Modules.Basket\Modulith.Modules.Basket.csproj" />
-	  <ProjectReference Include="..\Modulith.Modules.Order\Modulith.Modules.Order.csproj" />
-	  <ProjectReference Include="..\Modulith.Modules.Product\Modulith.Modules.Product.csproj" />
-	  <ProjectReference Include="..\Modulith.Modules.User\Modulith.Modules.User.csproj" />
+	  <ProjectReference Include="..\Modulith.Modules.Baskets\Modulith.Modules.Baskets.csproj" />
+	  <ProjectReference Include="..\Modulith.Modules.Orders\Modulith.Modules.Orders.csproj" />
+	  <ProjectReference Include="..\Modulith.Modules.Products\Modulith.Modules.Products.csproj" />
+	  <ProjectReference Include="..\Modulith.Modules.Users\Modulith.Modules.Users.csproj" />
 	</ItemGroup>
 
 </Project>
