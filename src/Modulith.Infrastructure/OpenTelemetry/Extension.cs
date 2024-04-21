@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Npgsql;
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
@@ -44,6 +45,8 @@ public static class Extension
                     .AddOtlpExporter(options => options.Endpoint = oltpEndpoint)
                     .AddSource("Microsoft.AspNetCore", "System.Net.Http")
                     .AddEntityFrameworkCoreInstrumentation(b => b.SetDbStatementForText = true)
+                    .AddRedisInstrumentation()
+                    .AddNpgsql()
             )
             .WithMetrics(meter =>
                 meter.SetResourceBuilder(resourceBuilder)

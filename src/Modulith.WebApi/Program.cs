@@ -1,6 +1,7 @@
 using Ardalis.ListStartupServices;
+using Modulith.Infrastructure.RateLimiter;
 using Modulith.Persistence.Interceptors;
-using Modulith.WebApi.Extensions;
+using Modulith.WebApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +11,11 @@ builder.Services.AddSingleton<AuditableEntityInterceptor>();
 
 builder.Services.Configure<ServiceConfig>(config => config.Services = [.. builder.Services]);
 
+builder.Services.AddInfrastructureService(builder);
+
 builder.AddRateLimiting();
 
-builder.AddModules();
+builder.AddModuleServices();
 
 builder.AddCustomCors();
 
@@ -35,6 +38,8 @@ app.UseRateLimiter();
 app.UseInfrastructureService();
 
 app.UseHttpsRedirection();
+
+app.MapEndpoints();
 
 app.MapSpecialEndpoints();
 

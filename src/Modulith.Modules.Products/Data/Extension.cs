@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Modulith.Modules.Products.Data.CompliedModels;
 using Modulith.Persistence;
-using Modulith.SharedKernel.Repositories;
 
 namespace Modulith.Modules.Products.Data;
 
@@ -13,9 +12,10 @@ public static class Extension
     {
         var connString = configuration.GetConnectionString("ProductDb");
         Guard.Against.NullOrEmpty(connString);
-        services.AddAppDbContext<ProductDbContext>(connString, ProductDbContextModel.Instance)
-            .AddDatabaseDeveloperPageExceptionFilter();
-        services.AddScoped(typeof(IReadRepository<>), typeof(ProductRepository<>));
-        services.AddScoped(typeof(IRepository<>), typeof(ProductRepository<>));
+        services.AddAppDbContext<ProductDbContext>(
+            connString,
+            ProductDbContextModel.Instance,
+            svc => svc.AddRepository(typeof(ProductRepository<>))
+        ).AddDatabaseDeveloperPageExceptionFilter();
     }
 }

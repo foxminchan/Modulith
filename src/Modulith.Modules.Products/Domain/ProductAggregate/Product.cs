@@ -47,6 +47,25 @@ public sealed class Product : SoftDeleteEntity, IAggregateRoot
     public CategoryId? CategoryId { get; set; }
     public Category? Category { get; set; }
 
+    public void Update(
+        string name,
+        string? productCode,
+        string? description,
+        int quantity,
+        CategoryId? categoryId,
+        ProductPrice productPrice,
+        ProductImage? image = null)
+    {
+        Name = Guard.Against.NullOrEmpty(name);
+        ProductCode = productCode;
+        Description = description;
+        Status = quantity > 0 ? ProductStatus.InStock : ProductStatus.OutOfStock;
+        Quantity = quantity;
+        CategoryId = categoryId;
+        Price = productPrice;
+        Image = image;
+    }
+
     public void RemoveStock(int quantityDesired)
     {
         Quantity -= quantityDesired;
