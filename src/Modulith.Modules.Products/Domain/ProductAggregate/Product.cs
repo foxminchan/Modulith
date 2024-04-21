@@ -1,4 +1,5 @@
 ﻿using Ardalis.GuardClauses;
+using Modulith.Modules.Baskets.Contracts;
 using Modulith.Modules.Products.Domain.CategoryAggregate;
 using Modulith.Modules.Products.Domain.CategoryAggregate.Primitives;
 using Modulith.Modules.Products.Domain.ProductAggregate.Enums;
@@ -79,4 +80,7 @@ public sealed class Product : SoftDeleteEntity, IAggregateRoot
     }
 
     public void Delete() => IsDeleted = true;
+
+    public void DeleteBasketItem(ProductId productId)
+        => RegisterDomainEvent(new BasketItemDeletedIntegrationEvent(productId.Value));
 }

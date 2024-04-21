@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Modulith.Modules.Products.UseCases.Categories.GetItem;
+namespace Modulith.Modules.Products.UseCases.Products.GetItem;
 
 public sealed class GetItemQueryValidator : AbstractValidator<GetItemQuery>
 {

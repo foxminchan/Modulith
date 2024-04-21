@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Modulith.Infrastructure.Endpoint;
 using Modulith.Infrastructure.RateLimiter;
-using Modulith.Modules.Products.Domain.CategoryAggregate.Primitives;
 using Modulith.Modules.Products.Domain.CategoryAggregate;
+using Modulith.Modules.Products.Domain.CategoryAggregate.Primitives;
 using Modulith.Modules.Products.UseCases.Categories.DeleteItem;
 
 namespace Modulith.Modules.Products.Endpoints.Categories;

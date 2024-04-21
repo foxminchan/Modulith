@@ -43,13 +43,15 @@ public sealed class CategoryConfiguration : BaseConfiguration<Category>
         yield return new()
         {
             Name = "Science Fiction",
-            Description = "Books exploring speculative concepts such as advanced science and technology, space exploration, or futuristic societies."
+            Description =
+                "Books exploring speculative concepts such as advanced science and technology, space exploration, or futuristic societies."
         };
 
         yield return new()
         {
             Name = "Mystery",
-            Description = "Books centered around solving a crime or unraveling a puzzle, often featuring detectives or amateur sleuths."
+            Description =
+                "Books centered around solving a crime or unraveling a puzzle, often featuring detectives or amateur sleuths."
         };
 
         yield return new()
@@ -61,37 +63,43 @@ public sealed class CategoryConfiguration : BaseConfiguration<Category>
         yield return new()
         {
             Name = "Historical Fiction",
-            Description = "Books set in the past, often blending fictional characters and events with real historical contexts."
+            Description =
+                "Books set in the past, often blending fictional characters and events with real historical contexts."
         };
 
         yield return new()
         {
             Name = "Thriller",
-            Description = "Books designed to provoke excitement, tension, and suspense, often involving danger and high stakes."
+            Description =
+                "Books designed to provoke excitement, tension, and suspense, often involving danger and high stakes."
         };
 
         yield return new()
         {
             Name = "Horror",
-            Description = "Books intended to evoke fear, dread, or terror through supernatural or psychological elements."
+            Description =
+                "Books intended to evoke fear, dread, or terror through supernatural or psychological elements."
         };
 
         yield return new()
         {
             Name = "Biography",
-            Description = "Books recounting the life and experiences of a real person, often written by another individual."
+            Description =
+                "Books recounting the life and experiences of a real person, often written by another individual."
         };
 
         yield return new()
         {
             Name = "Self-Help",
-            Description = "Books offering advice, guidance, and strategies for personal growth, improvement, and self-discovery."
+            Description =
+                "Books offering advice, guidance, and strategies for personal growth, improvement, and self-discovery."
         };
 
         yield return new()
         {
             Name = "Cooking",
-            Description = "Books providing recipes, cooking techniques, and culinary inspiration for preparing various dishes and cuisines."
+            Description =
+                "Books providing recipes, cooking techniques, and culinary inspiration for preparing various dishes and cuisines."
         };
     }
 }

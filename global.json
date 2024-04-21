@@ -1,0 +1,10 @@
+{
+  "sdk": {
+    "version": "8.0.200",
+    "rollForward": "latestMajor"
+  },
+  "projects": ["src", "tests"],
+  "msbuild-sdks": {
+    "MSBuild.Sdk.Extras": "3.0.44"
+  }
+}

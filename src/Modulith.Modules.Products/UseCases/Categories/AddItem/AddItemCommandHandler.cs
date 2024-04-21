@@ -1,10 +1,10 @@
-﻿using Ardalis.Result;
+﻿using System.Text.Json;
+using Ardalis.Result;
 using Microsoft.Extensions.Logging;
 using Modulith.Modules.Products.Domain.CategoryAggregate;
 using Modulith.Modules.Products.Domain.CategoryAggregate.Primitives;
 using Modulith.SharedKernel.Repositories;
 using Modulith.SharedKernel.Shared;
-using System.Text.Json;
 
 namespace Modulith.Modules.Products.UseCases.Categories.AddItem;
 

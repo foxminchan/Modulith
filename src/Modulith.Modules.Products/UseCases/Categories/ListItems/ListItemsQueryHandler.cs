@@ -12,7 +12,7 @@ public sealed class ListItemsQueryHandler(IReadRepository<Category> repository)
     public async Task<Result<List<CategoryVm>>> Handle(ListItemsQuery request, CancellationToken cancellationToken)
     {
         var result = await repository.ListAsync(cancellationToken);
-        var response = result.Select(x => new CategoryVm(x.Id, x.Name, x.Description)).ToList();
+        var response = result.Select(CategoryVm.FromEntity).ToList();
         return Result<List<CategoryVm>>.Success(response);
     }
 }

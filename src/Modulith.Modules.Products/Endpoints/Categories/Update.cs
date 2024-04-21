@@ -25,11 +25,9 @@ public sealed class Update(ISender sender) : IEndpoint<IResult, UpdateCategoryRe
 
         var result = await sender.Send(command, cancellationToken);
 
-        var category = result.Value;
-
         var response = new UpdateCategoryResponse
         {
-            Category = new(category.Id, category.Name, category.Description)
+            Category = result.Value
         };
 
         return Results.Ok(response);

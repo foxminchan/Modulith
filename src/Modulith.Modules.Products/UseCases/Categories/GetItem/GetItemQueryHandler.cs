@@ -16,7 +16,7 @@ public sealed class GetItemQueryHandler(IReadRepository<Category> repository)
         CategoryByIdSpec spec = new(request.Id);
         var entity = await repository.FirstOrDefaultAsync(spec, cancellationToken);
         Guard.Against.NotFound(request.Id, entity);
-        CategoryVm response = new(entity.Id, entity.Name, entity.Description);
+        var response = CategoryVm.FromEntity(entity);
         return Result<CategoryVm>.Success(response);
     }
 }

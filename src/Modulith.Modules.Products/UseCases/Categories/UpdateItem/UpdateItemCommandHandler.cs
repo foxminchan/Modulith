@@ -1,12 +1,12 @@
-﻿using Ardalis.GuardClauses;
+﻿using System.Text.Json;
+using Ardalis.GuardClauses;
 using Ardalis.Result;
 using Microsoft.Extensions.Logging;
 using Modulith.Modules.Products.Domain.CategoryAggregate;
+using Modulith.Modules.Products.Domain.CategoryAggregate.Specifications;
 using Modulith.Modules.Products.ViewModels;
 using Modulith.SharedKernel.Repositories;
 using Modulith.SharedKernel.Shared;
-using System.Text.Json;
-using Modulith.Modules.Products.Domain.CategoryAggregate.Specifications;
 
 namespace Modulith.Modules.Products.UseCases.Categories.UpdateItem;
 
@@ -22,7 +22,7 @@ public sealed class UpdateItemCommandHandler(IRepository<Category> repository, I
         logger.LogInformation("[{Command}] Category information: {Category}",
             nameof(UpdateItemCommand), JsonSerializer.Serialize(category));
         await repository.UpdateAsync(category, cancellationToken);
-        CategoryVm categoryVm = new(category.Id, category.Name, category.Description);
-        return Result<CategoryVm>.Success(categoryVm);
+        var response = CategoryVm.FromEntity(category);
+        return Result<CategoryVm>.Success(response);
     }
 }

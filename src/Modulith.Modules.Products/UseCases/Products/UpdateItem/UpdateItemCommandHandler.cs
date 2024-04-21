@@ -44,19 +44,9 @@ public sealed class UpdateItemCommandHandler(
 
         await repository.UpdateAsync(product, cancellationToken);
 
-        ProductVm productVm = new(
-            product.Id,
-            product.Name,
-            product.ProductCode,
-            product.Description,
-            product.Status?.Name,
-            product.Quantity,
-            product.Category?.Name,
-            product.Price,
-            product.Image
-        );
+        var response = ProductVm.FromEntity(product);
 
-        return Result<ProductVm>.Success(productVm);
+        return Result<ProductVm>.Success(response);
     }
 
     private async Task RemoveObsoleteImagesAsync(Product product)

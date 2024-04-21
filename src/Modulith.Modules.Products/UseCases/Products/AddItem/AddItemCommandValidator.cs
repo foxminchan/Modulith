@@ -29,6 +29,5 @@ public sealed class AddItemCommandValidator : AbstractValidator<AddItemCommand>
 
         RuleFor(x => x.Alt)
             .MaximumLength(DatabaseSchemaLength.DEFAULT_LENGTH);
-
     }
 }
