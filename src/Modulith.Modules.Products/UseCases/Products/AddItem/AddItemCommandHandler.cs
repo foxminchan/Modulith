@@ -1,9 +1,9 @@
 ﻿using System.Text.Json;
 using Ardalis.Result;
 using Microsoft.Extensions.Logging;
-using Modulith.Infrastructure.Storage.Azure;
 using Modulith.Modules.Products.Domain.ProductAggregate;
 using Modulith.Modules.Products.Domain.ProductAggregate.Primitives;
+using Modulith.Modules.Products.Infrastructures.Storage.Azure;
 using Modulith.SharedKernel.Repositories;
 using Modulith.SharedKernel.Shared;
 

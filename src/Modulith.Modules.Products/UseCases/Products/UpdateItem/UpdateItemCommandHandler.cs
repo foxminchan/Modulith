@@ -2,9 +2,9 @@
 using Ardalis.GuardClauses;
 using Ardalis.Result;
 using Microsoft.Extensions.Logging;
-using Modulith.Infrastructure.Storage.Azure;
 using Modulith.Modules.Products.Domain.ProductAggregate;
 using Modulith.Modules.Products.Domain.ProductAggregate.Specifications;
+using Modulith.Modules.Products.Infrastructures.Storage.Azure;
 using Modulith.Modules.Products.ViewModels;
 using Modulith.SharedKernel.Repositories;
 using Modulith.SharedKernel.Shared;

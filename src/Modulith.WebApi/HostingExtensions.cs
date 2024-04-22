@@ -6,6 +6,7 @@ using System.Reflection;
 using MediatR;
 using Modulith.Infrastructure.Logging;
 using Modulith.Infrastructure.Validator;
+using Modulith.Modules.Baskets;
 using Modulith.Persistence;
 
 namespace Modulith.WebApi;
@@ -21,6 +22,7 @@ public static class HostingExtensions
     {
         List<Assembly> assemblies = [AssemblyReference.Program];
         builder.AddProductModule(assemblies);
+        builder.AddBasketModule(assemblies);
         builder.AddMediator(assemblies);
         builder.AddEndpoints(assemblies);
     }

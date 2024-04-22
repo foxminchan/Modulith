@@ -8,7 +8,6 @@ using Modulith.Infrastructure.Swagger;
 using Modulith.Infrastructure.Validator;
 using Modulith.Infrastructure.Versioning;
 using System.Diagnostics;
-using Modulith.Infrastructure.Storage;
 using Modulith.Infrastructure.OpenTelemetry;
 using Modulith.Infrastructure.Logging;
 
@@ -27,7 +26,6 @@ public static class Extension
 
         builder.AddKestrel();
         builder.AddRedisCache();
-        builder.AddAzureStorage();
         builder.AddOpenTelemetry();
         builder.AddSerilog(builder.Environment.ApplicationName);
     }

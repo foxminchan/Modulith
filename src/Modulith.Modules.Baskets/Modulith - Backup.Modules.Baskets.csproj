@@ -10,4 +10,8 @@
 		<ProjectReference Include="..\Modulith.Persistence\Modulith.Persistence.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="NewFolder\" />
+	</ItemGroup>
+
 </Project>

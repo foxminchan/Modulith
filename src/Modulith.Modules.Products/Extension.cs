@@ -1,14 +1,16 @@
 ﻿using System.Reflection;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Modulith.Modules.Products.Data;
+using Modulith.Modules.Products.Infrastructures.Data;
+using Modulith.Modules.Products.Infrastructures.Storage;
 
 namespace Modulith.Modules.Products;
 
 public static class Extension
 {
-    public static IServiceCollection AddProductModule(this IHostApplicationBuilder builder, List<Assembly> assemblies)
+    public static IServiceCollection AddProductModule(this WebApplicationBuilder builder, List<Assembly> assemblies)
     {
+        builder.AddAzureStorage();
         builder.Services.AddProductDbContext(builder.Configuration);
         assemblies.Add(AssemblyReference.Assembly);
         return builder.Services;

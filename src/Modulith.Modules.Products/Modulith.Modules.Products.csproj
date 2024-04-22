@@ -2,6 +2,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Modulith.Modules.Baskets.Contracts\Modulith.Modules.Baskets.Contracts.csproj" />
+		<ProjectReference Include="..\Modulith.Modules.Products.Contracts\Modulith.Modules.Products.Contracts.csproj" />
 		<ProjectReference Include="..\Modulith.Persistence\Modulith.Persistence.csproj" />
 	</ItemGroup>
 
