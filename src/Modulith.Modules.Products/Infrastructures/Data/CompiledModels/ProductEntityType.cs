@@ -10,10 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Json;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Modulith.Modules.Products.Domain.CategoryAggregate;
-using Modulith.Modules.Products.Domain.CategoryAggregate.Primitives;
 using Modulith.Modules.Products.Domain.ProductAggregate;
 using Modulith.Modules.Products.Domain.ProductAggregate.Enums;
-using Modulith.Modules.Products.Domain.ProductAggregate.Primitives;
 using Modulith.SharedKernel.Entities;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.Mapping;
@@ -21,7 +19,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.Mapping;
 #pragma warning disable 219, 612, 618
 #nullable disable
 
-namespace Modulith.Modules.Products.Data.CompliedModels
+namespace Modulith.Modules.Products.Infrastructures.Data.CompiledModels
 {
     internal partial class ProductEntityType
     {
@@ -34,68 +32,52 @@ namespace Modulith.Modules.Products.Data.CompliedModels
 
             var id = runtimeEntityType.AddProperty(
                 "Id",
-                typeof(ProductId),
+                typeof(Guid),
                 propertyInfo: typeof(Product).GetProperty("Id", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(Product).GetField("<Id>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 valueGenerated: ValueGenerated.OnAdd,
-                afterSaveBehavior: PropertySaveBehavior.Throw);
+                afterSaveBehavior: PropertySaveBehavior.Throw,
+                sentinel: new Guid("00000000-0000-0000-0000-000000000000"));
             id.TypeMapping = GuidTypeMapping.Default.Clone(
-                comparer: new ValueComparer<ProductId>(
-                    (ProductId v1, ProductId v2) => v1.Equals(v2),
-                    (ProductId v) => v.GetHashCode(),
-                    (ProductId v) => v),
-                keyComparer: new ValueComparer<ProductId>(
-                    (ProductId v1, ProductId v2) => v1.Equals(v2),
-                    (ProductId v) => v.GetHashCode(),
-                    (ProductId v) => v),
+                comparer: new ValueComparer<Guid>(
+                    (Guid v1, Guid v2) => v1 == v2,
+                    (Guid v) => v.GetHashCode(),
+                    (Guid v) => v),
+                keyComparer: new ValueComparer<Guid>(
+                    (Guid v1, Guid v2) => v1 == v2,
+                    (Guid v) => v.GetHashCode(),
+                    (Guid v) => v),
                 providerValueComparer: new ValueComparer<Guid>(
                     (Guid v1, Guid v2) => v1 == v2,
                     (Guid v) => v.GetHashCode(),
                     (Guid v) => v),
                 mappingInfo: new RelationalTypeMappingInfo(
-                    storeTypeName: "uuid"),
-                converter: new ValueConverter<ProductId, Guid>(
-                    (ProductId id) => id.Value,
-                    (Guid value) => new ProductId(value)),
-                jsonValueReaderWriter: new JsonConvertedValueReaderWriter<ProductId, Guid>(
-                    JsonGuidReaderWriter.Instance,
-                    new ValueConverter<ProductId, Guid>(
-                        (ProductId id) => id.Value,
-                        (Guid value) => new ProductId(value))));
-            id.SetSentinelFromProviderValue(new Guid("00000000-0000-0000-0000-000000000000"));
+                    storeTypeName: "uuid"));
             id.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
             id.AddAnnotation("Relational:ColumnName", "id");
             id.AddAnnotation("Relational:DefaultValueSql", "uuid_generate_v4()");
 
             var categoryId = runtimeEntityType.AddProperty(
                 "CategoryId",
-                typeof(CategoryId?),
+                typeof(Guid?),
                 propertyInfo: typeof(Product).GetProperty("CategoryId", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(Product).GetField("<CategoryId>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 nullable: true);
             categoryId.TypeMapping = GuidTypeMapping.Default.Clone(
-                comparer: new ValueComparer<CategoryId?>(
-                    (Nullable<CategoryId> v1, Nullable<CategoryId> v2) => v1.HasValue && v2.HasValue && ((CategoryId)v1).Equals((CategoryId)v2) || !v1.HasValue && !v2.HasValue,
-                    (Nullable<CategoryId> v) => v.HasValue ? ((CategoryId)v).GetHashCode() : 0,
-                    (Nullable<CategoryId> v) => v.HasValue ? (Nullable<CategoryId>)(CategoryId)v : default(Nullable<CategoryId>)),
-                keyComparer: new ValueComparer<CategoryId?>(
-                    (Nullable<CategoryId> v1, Nullable<CategoryId> v2) => v1.HasValue && v2.HasValue && ((CategoryId)v1).Equals((CategoryId)v2) || !v1.HasValue && !v2.HasValue,
-                    (Nullable<CategoryId> v) => v.HasValue ? ((CategoryId)v).GetHashCode() : 0,
-                    (Nullable<CategoryId> v) => v.HasValue ? (Nullable<CategoryId>)(CategoryId)v : default(Nullable<CategoryId>)),
-                providerValueComparer: new ValueComparer<Guid>(
-                    (Guid v1, Guid v2) => v1 == v2,
-                    (Guid v) => v.GetHashCode(),
-                    (Guid v) => v),
+                comparer: new ValueComparer<Guid?>(
+                    (Nullable<Guid> v1, Nullable<Guid> v2) => v1.HasValue && v2.HasValue && (Guid)v1 == (Guid)v2 || !v1.HasValue && !v2.HasValue,
+                    (Nullable<Guid> v) => v.HasValue ? ((Guid)v).GetHashCode() : 0,
+                    (Nullable<Guid> v) => v.HasValue ? (Nullable<Guid>)(Guid)v : default(Nullable<Guid>)),
+                keyComparer: new ValueComparer<Guid?>(
+                    (Nullable<Guid> v1, Nullable<Guid> v2) => v1.HasValue && v2.HasValue && (Guid)v1 == (Guid)v2 || !v1.HasValue && !v2.HasValue,
+                    (Nullable<Guid> v) => v.HasValue ? ((Guid)v).GetHashCode() : 0,
+                    (Nullable<Guid> v) => v.HasValue ? (Nullable<Guid>)(Guid)v : default(Nullable<Guid>)),
+                providerValueComparer: new ValueComparer<Guid?>(
+                    (Nullable<Guid> v1, Nullable<Guid> v2) => v1.HasValue && v2.HasValue && (Guid)v1 == (Guid)v2 || !v1.HasValue && !v2.HasValue,
+                    (Nullable<Guid> v) => v.HasValue ? ((Guid)v).GetHashCode() : 0,
+                    (Nullable<Guid> v) => v.HasValue ? (Nullable<Guid>)(Guid)v : default(Nullable<Guid>)),
                 mappingInfo: new RelationalTypeMappingInfo(
-                    storeTypeName: "uuid"),
-                converter: new ValueConverter<CategoryId, Guid>(
-                    (CategoryId id) => id.Value,
-                    (Guid value) => new CategoryId(value)),
-                jsonValueReaderWriter: new JsonConvertedValueReaderWriter<CategoryId, Guid>(
-                    JsonGuidReaderWriter.Instance,
-                    new ValueConverter<CategoryId, Guid>(
-                        (CategoryId id) => id.Value,
-                        (Guid value) => new CategoryId(value))));
+                    storeTypeName: "uuid"));
             categoryId.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
             categoryId.AddAnnotation("Relational:ColumnName", "category_id");
 
@@ -121,7 +103,7 @@ namespace Modulith.Modules.Products.Data.CompliedModels
                     (DateTime v) => v));
             createdDate.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
             createdDate.AddAnnotation("Relational:ColumnName", "created_date");
-            createdDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 20, 8, 11, 39, 746, DateTimeKind.Utc).AddTicks(5395));
+            createdDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 23, 5, 35, 10, 485, DateTimeKind.Utc).AddTicks(6754));
 
             var description = runtimeEntityType.AddProperty(
                 "Description",
@@ -305,7 +287,7 @@ updateDate.TypeMapping = NpgsqlTimestampTzTypeMapping.Default.Clone(
         (Nullable<DateTime> v) => v.HasValue ? (Nullable<DateTime>)(DateTime)v : default(Nullable<DateTime>)));
 updateDate.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
 updateDate.AddAnnotation("Relational:ColumnName", "update_date");
-updateDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 20, 8, 11, 39, 746, DateTimeKind.Utc).AddTicks(5753));
+updateDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 23, 5, 35, 10, 485, DateTimeKind.Utc).AddTicks(7047));
 
 var version = runtimeEntityType.AddProperty(
     "Version",
@@ -332,7 +314,7 @@ version.TypeMapping = GuidTypeMapping.Default.Clone(
         storeTypeName: "uuid"));
 version.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
 version.AddAnnotation("Relational:ColumnName", "version");
-version.AddAnnotation("Relational:DefaultValue", new Guid("59fe168d-ce16-4229-bf90-8c0440b355f7"));
+version.AddAnnotation("Relational:DefaultValue", new Guid("72d1b564-9a37-4ec3-a8dc-c430aa90701e"));
 
 var key = runtimeEntityType.AddKey(
     new[] { id });

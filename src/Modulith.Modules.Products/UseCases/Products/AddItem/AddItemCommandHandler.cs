@@ -2,7 +2,6 @@
 using Ardalis.Result;
 using Microsoft.Extensions.Logging;
 using Modulith.Modules.Products.Domain.ProductAggregate;
-using Modulith.Modules.Products.Domain.ProductAggregate.Primitives;
 using Modulith.Modules.Products.Infrastructures.Storage.Azure;
 using Modulith.SharedKernel.Repositories;
 using Modulith.SharedKernel.Shared;
@@ -12,10 +11,10 @@ namespace Modulith.Modules.Products.UseCases.Products.AddItem;
 public sealed class AddItemCommandHandler(
     IRepository<Product> repository,
     ILogger<AddItemCommandHandler> logger,
-    IAzureStorage storage) : ICommandHandler<AddItemCommand, Result<ProductId>>
+    IAzureStorage storage) : ICommandHandler<AddItemCommand, Result<Guid>>
 
 {
-    public async Task<Result<ProductId>> Handle(AddItemCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Guid>> Handle(AddItemCommand request, CancellationToken cancellationToken)
     {
         var result = string.Empty;
 
@@ -37,6 +36,6 @@ public sealed class AddItemCommandHandler(
 
         await repository.AddAsync(product, cancellationToken);
 
-        return Result<ProductId>.Success(product.Id);
+        return Result<Guid>.Success(product.Id);
     }
 }

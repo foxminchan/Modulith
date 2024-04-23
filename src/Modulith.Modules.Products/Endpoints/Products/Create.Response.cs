@@ -1,8 +1,6 @@
-﻿using Modulith.Modules.Products.Domain.ProductAggregate.Primitives;
+﻿namespace Modulith.Modules.Products.Endpoints.Products;
 
-namespace Modulith.Modules.Products.Endpoints.Products;
-
-public sealed class CreateProductResponse(ProductId id)
+public sealed class CreateProductResponse(Guid id)
 {
-    public ProductId Id { get; set; } = id;
+    public Guid Id { get; set; } = id;
 }

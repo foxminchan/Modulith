@@ -1,7 +1,5 @@
 ﻿using Ardalis.Result;
 using Microsoft.AspNetCore.Http;
-using Modulith.Modules.Products.Domain.CategoryAggregate.Primitives;
-using Modulith.Modules.Products.Domain.ProductAggregate.Primitives;
 using Modulith.Modules.Products.Domain.ProductAggregate.ValueObjects;
 using Modulith.SharedKernel.Shared;
 
@@ -12,7 +10,7 @@ public sealed record AddItemCommand(
     string? ProductCode,
     string? Detail,
     int Quantity,
-    CategoryId? CategoryId,
+    Guid? CategoryId,
     ProductPrice ProductPrice,
     IFormFile? Image,
-    string? Alt) : ICommand<Result<ProductId>>;
+    string? Alt) : ICommand<Result<Guid>>;

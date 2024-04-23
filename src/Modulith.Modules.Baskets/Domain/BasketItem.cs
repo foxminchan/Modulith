@@ -1,6 +1,4 @@
-﻿using Modulith.SharedKernel.Entities;
-
-namespace Modulith.Modules.Baskets.Domain;
+﻿namespace Modulith.Modules.Baskets.Domain;
 
 public sealed class BasketItem(Guid productId, string? productName, int quantity, decimal price)
 {

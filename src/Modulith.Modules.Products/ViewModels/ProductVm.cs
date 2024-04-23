@@ -1,11 +1,10 @@
 ﻿using Modulith.Modules.Products.Domain.ProductAggregate;
-using Modulith.Modules.Products.Domain.ProductAggregate.Primitives;
 using Modulith.Modules.Products.Domain.ProductAggregate.ValueObjects;
 
 namespace Modulith.Modules.Products.ViewModels;
 
 public sealed record ProductVm(
-    ProductId Id,
+    Guid Id,
     string? Name,
     string? ProductCode,
     string? Detail,

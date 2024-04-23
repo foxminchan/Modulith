@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Modulith.Infrastructure.Endpoint;
 using Modulith.Infrastructure.RateLimiter;
-using Modulith.Modules.Products.Domain.CategoryAggregate.Primitives;
-using Modulith.Modules.Products.Domain.ProductAggregate.Primitives;
 using Modulith.Modules.Products.Domain.ProductAggregate;
 using Modulith.Modules.Products.UseCases.Products.UpdateItem;
 
@@ -16,12 +14,12 @@ public sealed class Update(ISender sender) : IEndpoint<IResult, UpdateProductReq
 {
     public void MapEndpoint(IEndpointRouteBuilder app) =>
         app.MapPut("/products", async (
-                    [FromForm] ProductId id,
+                    [FromForm] Guid id,
                     [FromForm] string name,
                     [FromForm] string? productCode,
                     [FromForm] string? detail,
                     [FromForm] int quantity,
-                    [FromForm] CategoryId? categoryId,
+                    [FromForm] Guid? categoryId,
                     [FromForm] decimal price,
                     [FromForm] decimal priceSale,
                     [FromForm] bool isDeleteImage,

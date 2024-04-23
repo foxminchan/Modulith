@@ -9,6 +9,7 @@
 		<PackageReference Include="Ardalis.GuardClauses" />
 		<PackageReference Include="Ardalis.Specification" />
 		<PackageReference Include="Ardalis.SmartEnum" />
+		<PackageReference Include="Ardalis.Result.AspNetCore" />		
 	</ItemGroup>
 
 	<ItemGroup>

@@ -8,7 +8,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="Ardalis.SmartEnum.EFCore" />
-		<PackageReference Include="Ardalis.Result.AspNetCore" />
 		<PackageReference Include="Ardalis.ListStartupServices" />
 		<PackageReference Include="Ardalis.Specification.EntityFrameworkCore" />
 	</ItemGroup>

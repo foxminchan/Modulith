@@ -1,9 +1,7 @@
 ﻿using Ardalis.GuardClauses;
 using Modulith.Modules.Baskets.Contracts;
 using Modulith.Modules.Products.Domain.CategoryAggregate;
-using Modulith.Modules.Products.Domain.CategoryAggregate.Primitives;
 using Modulith.Modules.Products.Domain.ProductAggregate.Enums;
-using Modulith.Modules.Products.Domain.ProductAggregate.Primitives;
 using Modulith.Modules.Products.Domain.ProductAggregate.ValueObjects;
 using Modulith.SharedKernel.Entities;
 
@@ -23,7 +21,7 @@ public sealed class Product : SoftDeleteEntity, IAggregateRoot
         string? productCode,
         string? description,
         int quantity,
-        CategoryId? categoryId,
+        Guid? categoryId,
         ProductPrice productPrice,
         ProductImage? image = null)
     {
@@ -37,7 +35,7 @@ public sealed class Product : SoftDeleteEntity, IAggregateRoot
         Image = image;
     }
 
-    public ProductId Id { get; set; } = new(Guid.NewGuid());
+    public Guid Id { get; set; } = Guid.NewGuid();
     public string? Name { get; set; }
     public string? ProductCode { get; set; }
     public string? Description { get; set; }
@@ -45,7 +43,7 @@ public sealed class Product : SoftDeleteEntity, IAggregateRoot
     public int Quantity { get; set; }
     public ProductImage? Image { get; set; }
     public ProductPrice? Price { get; set; }
-    public CategoryId? CategoryId { get; set; }
+    public Guid? CategoryId { get; set; }
     public Category? Category { get; set; }
 
     public void Update(
@@ -53,7 +51,7 @@ public sealed class Product : SoftDeleteEntity, IAggregateRoot
         string? productCode,
         string? description,
         int quantity,
-        CategoryId? categoryId,
+        Guid? categoryId,
         ProductPrice productPrice,
         ProductImage? image = null)
     {
@@ -81,6 +79,6 @@ public sealed class Product : SoftDeleteEntity, IAggregateRoot
 
     public void Delete() => IsDeleted = true;
 
-    public void DeleteBasketItem(ProductId productId)
-        => RegisterDomainEvent(new BasketItemDeletedIntegrationEvent(productId.Value));
+    public void DeleteBasketItem(Guid productId)
+        => RegisterDomainEvent(new BasketItemDeletedIntegrationEvent(productId));
 }

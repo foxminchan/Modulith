@@ -11,7 +11,7 @@ public sealed class AzureStorage(AzureBlobOption option) : IAzureStorage
     private readonly BlobContainerClient _container = new(option.Url, option.Container);
 
     private readonly AsyncRetryPolicy _retryPolicy = Policy
-        .Handle<System.Exception>()
+        .Handle<Exception>()
         .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
 
     public async Task<string> UploadFileAsync(IFormFile file, CancellationToken cancellationToken = default) =>
@@ -21,7 +21,7 @@ public sealed class AzureStorage(AzureBlobOption option) : IAzureStorage
             var newFileName = Guid.NewGuid().ToString("N") + Path.GetExtension(file.FileName);
             var blobClient = _container.GetBlobClient(newFileName);
             await using var stream = file.OpenReadStream();
-            await blobClient.UploadAsync(stream, overwrite: true, cancellationToken);
+            await blobClient.UploadAsync(stream, true, cancellationToken);
             return newFileName;
         });
 

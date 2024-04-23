@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using Modulith.Modules.Products.Contracts;
 using Modulith.Modules.Products.Domain.ProductAggregate;
-using Modulith.Modules.Products.Domain.ProductAggregate.Primitives;
 using Modulith.Modules.Products.Domain.ProductAggregate.Specifications;
 using Modulith.SharedKernel.Repositories;
 
@@ -17,8 +16,7 @@ public sealed class ProductUpdateQuantityEventHandler(
     {
         logger.LogInformation("[{Event}] Request to remove stock from product with ID: {ProductId}",
             nameof(ProductUpdateQuantityEvent), notification.ProductId);
-        ProductId id = new(notification.ProductId);
-        ProductByIdSpec spec = new(id);
+        ProductByIdSpec spec = new(notification.ProductId);
         var product = await repository.GetByIdAsync(spec, cancellationToken);
         Guard.Against.NotFound(notification.ProductId, product);
         if (notification.IsReduce)

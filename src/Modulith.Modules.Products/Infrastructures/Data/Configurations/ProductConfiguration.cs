@@ -15,10 +15,6 @@ public sealed class ProductConfiguration : BaseConfiguration<Product>
         builder.HasKey(e => e.Id);
 
         builder.Property(e => e.Id)
-            .HasConversion(
-                id => id.Value,
-                value => new(value)
-            )
             .HasDefaultValueSql(UniqueId.UUID_ALGORITHM)
             .ValueGeneratedOnAdd();
 

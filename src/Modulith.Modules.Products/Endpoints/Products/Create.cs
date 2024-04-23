@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Modulith.Infrastructure.Endpoint;
 using Modulith.Infrastructure.RateLimiter;
-using Modulith.Modules.Products.Domain.CategoryAggregate.Primitives;
 using Modulith.Modules.Products.Domain.ProductAggregate;
 using Modulith.Modules.Products.UseCases.Products.AddItem;
 
@@ -19,7 +18,7 @@ public sealed class Create(ISender sender) : IEndpoint<IResult, CreateProductReq
                 [FromForm] string? productCode,
                 [FromForm] string? detail,
                 [FromForm] int quantity,
-                [FromForm] CategoryId? categoryId,
+                [FromForm] Guid? categoryId,
                 [FromForm] decimal price,
                 [FromForm] decimal priceSale,
                 [FromForm] IFormFile? image,

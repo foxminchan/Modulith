@@ -1,7 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 using Modulith.Modules.Products.Domain.ProductAggregate;
 using Modulith.SharedKernel.Entities;
-using CategoryId = Modulith.Modules.Products.Domain.CategoryAggregate.Primitives.CategoryId;
 
 namespace Modulith.Modules.Products.Domain.CategoryAggregate;
 
@@ -20,7 +19,7 @@ public sealed class Category : EntityBase, IAggregateRoot
         Description = description;
     }
 
-    public CategoryId Id { get; set; } = new(Guid.NewGuid());
+    public Guid Id { get; set; } = Guid.NewGuid();
     public string? Name { get; set; }
     public string? Description { get; set; }
     public ICollection<Product>? Products { get; set; } = [];

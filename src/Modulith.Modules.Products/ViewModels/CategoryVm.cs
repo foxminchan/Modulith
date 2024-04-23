@@ -1,10 +1,9 @@
 ﻿using Modulith.Modules.Products.Domain.CategoryAggregate;
-using Modulith.Modules.Products.Domain.CategoryAggregate.Primitives;
 
 namespace Modulith.Modules.Products.ViewModels;
 
 public sealed record CategoryVm(
-    CategoryId Id,
+    Guid Id,
     string? Name,
     string? Description
 )

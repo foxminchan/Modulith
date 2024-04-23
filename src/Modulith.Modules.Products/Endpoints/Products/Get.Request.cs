@@ -1,5 +1,3 @@
-﻿using Modulith.Modules.Products.Domain.ProductAggregate.Primitives;
+﻿namespace Modulith.Modules.Products.Endpoints.Products;
 
-namespace Modulith.Modules.Products.Endpoints.Products;
-
-public sealed record GetProductRequest(ProductId Id);
+public sealed record GetProductRequest(Guid Id);

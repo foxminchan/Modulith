@@ -5,17 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore.Storage.Json;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Modulith.Modules.Products.Domain.ProductAggregate;
-using Modulith.Modules.Products.Domain.ProductAggregate.Primitives;
 using Modulith.Modules.Products.Domain.ProductAggregate.ValueObjects;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #pragma warning disable 219, 612, 618
 #nullable disable
 
-namespace Modulith.Modules.Products.Data.CompliedModels
+namespace Modulith.Modules.Products.Infrastructures.Data.CompiledModels
 {
     internal partial class ProductImageEntityType
     {
@@ -28,33 +25,25 @@ namespace Modulith.Modules.Products.Data.CompliedModels
 
             var productId = runtimeEntityType.AddProperty(
                 "ProductId",
-                typeof(ProductId),
+                typeof(Guid),
                 valueGenerated: ValueGenerated.OnAdd,
-                afterSaveBehavior: PropertySaveBehavior.Throw);
+                afterSaveBehavior: PropertySaveBehavior.Throw,
+                sentinel: new Guid("00000000-0000-0000-0000-000000000000"));
             productId.TypeMapping = GuidTypeMapping.Default.Clone(
-                comparer: new ValueComparer<ProductId>(
-                    (ProductId v1, ProductId v2) => v1.Equals(v2),
-                    (ProductId v) => v.GetHashCode(),
-                    (ProductId v) => v),
-                keyComparer: new ValueComparer<ProductId>(
-                    (ProductId v1, ProductId v2) => v1.Equals(v2),
-                    (ProductId v) => v.GetHashCode(),
-                    (ProductId v) => v),
+                comparer: new ValueComparer<Guid>(
+                    (Guid v1, Guid v2) => v1 == v2,
+                    (Guid v) => v.GetHashCode(),
+                    (Guid v) => v),
+                keyComparer: new ValueComparer<Guid>(
+                    (Guid v1, Guid v2) => v1 == v2,
+                    (Guid v) => v.GetHashCode(),
+                    (Guid v) => v),
                 providerValueComparer: new ValueComparer<Guid>(
                     (Guid v1, Guid v2) => v1 == v2,
                     (Guid v) => v.GetHashCode(),
                     (Guid v) => v),
                 mappingInfo: new RelationalTypeMappingInfo(
-                    storeTypeName: "uuid"),
-                converter: new ValueConverter<ProductId, Guid>(
-                    (ProductId id) => id.Value,
-                    (Guid value) => new ProductId(value)),
-                jsonValueReaderWriter: new JsonConvertedValueReaderWriter<ProductId, Guid>(
-                    JsonGuidReaderWriter.Instance,
-                    new ValueConverter<ProductId, Guid>(
-                        (ProductId id) => id.Value,
-                        (Guid value) => new ProductId(value))));
-            productId.SetSentinelFromProviderValue(new Guid("00000000-0000-0000-0000-000000000000"));
+                    storeTypeName: "uuid"));
             productId.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
 
             var alt = runtimeEntityType.AddProperty(

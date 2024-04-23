@@ -1,7 +1,7 @@
 ﻿using Ardalis.GuardClauses;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Modulith.Modules.Products.Data.CompliedModels;
+using Modulith.Modules.Products.Infrastructures.Data.CompiledModels;
 using Modulith.Persistence;
 
 namespace Modulith.Modules.Products.Infrastructures.Data;

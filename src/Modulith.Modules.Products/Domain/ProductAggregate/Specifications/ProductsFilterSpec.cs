@@ -1,5 +1,5 @@
-﻿using Ardalis.Specification;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
+using Ardalis.Specification;
 
 namespace Modulith.Modules.Products.Domain.ProductAggregate.Specifications;
 

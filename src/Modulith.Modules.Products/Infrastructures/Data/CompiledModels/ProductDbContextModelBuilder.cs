@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 #pragma warning disable 219, 612, 618
 #nullable disable
 
-namespace Modulith.Modules.Products.Data.CompliedModels
+namespace Modulith.Modules.Products.Infrastructures.Data.CompiledModels
 {
     public partial class ProductDbContextModel
     {

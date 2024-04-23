@@ -1,8 +1,6 @@
-﻿using Modulith.Modules.Products.Domain.CategoryAggregate.Primitives;
+﻿namespace Modulith.Modules.Products.Endpoints.Categories;
 
-namespace Modulith.Modules.Products.Endpoints.Categories;
-
-public sealed class CreateCategoryResponse(CategoryId id)
+public sealed class CreateCategoryResponse(Guid id)
 {
-    public CategoryId Id { get; set; } = id;
+    public Guid Id { get; set; } = id;
 }
