@@ -12,11 +12,11 @@ namespace Modulith.Modules.Baskets.Endpoints;
 public sealed class CheckOut(ISender sender) : IEndpoint<IResult, CheckOutBasketRequest>
 {
     public void MapEndpoint(IEndpointRouteBuilder app) =>
-        app.MapPost("/orders",
+        app.MapPost("/baskets/check-out",
                 async (CheckOutBasketRequest request) => await HandleAsync(new(request.BasketId, request.Code)))
             .Produces<CheckOutBasketResponse>(StatusCodes.Status201Created)
             .WithTags(nameof(Baskets))
-            .WithName("Create Order")
+            .WithName("Check Out Basket")
             .MapToApiVersion(new(1, 0))
             .RequirePerUserRateLimit();
 

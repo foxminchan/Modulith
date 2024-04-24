@@ -12,7 +12,7 @@ namespace Modulith.Modules.Baskets.Endpoints;
 public sealed class Get(ISender sender) : IEndpoint<IResult, GetBasketRequest>
 {
     public void MapEndpoint(IEndpointRouteBuilder app) =>
-        app.MapGet("/baskets/{id}", async (Guid id) => await HandleAsync(new(id)))
+        app.MapGet("/baskets/{id:guid}", async (Guid id) => await HandleAsync(new(id)))
             .Produces<CustomerBasketVm>()
             .WithTags(nameof(Baskets))
             .WithName("Get Basket By Id")

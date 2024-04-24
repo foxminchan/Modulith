@@ -72,7 +72,7 @@ namespace Modulith.Modules.Products.Infrastructures.Data.CompiledModels
                     (DateTime v) => v));
             createdDate.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
             createdDate.AddAnnotation("Relational:ColumnName", "created_date");
-            createdDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 23, 5, 35, 10, 485, DateTimeKind.Utc).AddTicks(4605));
+            createdDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 23, 10, 26, 59, 478, DateTimeKind.Utc).AddTicks(9965));
 
             var description = runtimeEntityType.AddProperty(
                 "Description",
@@ -149,7 +149,7 @@ namespace Modulith.Modules.Products.Infrastructures.Data.CompiledModels
             (Nullable<DateTime> v) => v.HasValue ? (Nullable<DateTime>)(DateTime)v : default(Nullable<DateTime>)));
     updateDate.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
     updateDate.AddAnnotation("Relational:ColumnName", "update_date");
-    updateDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 23, 5, 35, 10, 485, DateTimeKind.Utc).AddTicks(4874));
+    updateDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 23, 10, 26, 59, 479, DateTimeKind.Utc).AddTicks(294));
 
     var version = runtimeEntityType.AddProperty(
         "Version",
@@ -176,7 +176,7 @@ namespace Modulith.Modules.Products.Infrastructures.Data.CompiledModels
             storeTypeName: "uuid"));
     version.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
     version.AddAnnotation("Relational:ColumnName", "version");
-    version.AddAnnotation("Relational:DefaultValue", new Guid("16296c2e-c0e8-47e1-b7fd-a870808d5e46"));
+    version.AddAnnotation("Relational:DefaultValue", new Guid("b75c44a8-b6a5-486b-86d7-6a59dbf42ef8"));
 
     var key = runtimeEntityType.AddKey(
         new[] { id });

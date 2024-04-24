@@ -103,7 +103,7 @@ namespace Modulith.Modules.Products.Infrastructures.Data.CompiledModels
                     (DateTime v) => v));
             createdDate.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
             createdDate.AddAnnotation("Relational:ColumnName", "created_date");
-            createdDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 23, 5, 35, 10, 485, DateTimeKind.Utc).AddTicks(6754));
+            createdDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 23, 10, 26, 59, 479, DateTimeKind.Utc).AddTicks(2467));
 
             var description = runtimeEntityType.AddProperty(
                 "Description",
@@ -287,7 +287,7 @@ updateDate.TypeMapping = NpgsqlTimestampTzTypeMapping.Default.Clone(
         (Nullable<DateTime> v) => v.HasValue ? (Nullable<DateTime>)(DateTime)v : default(Nullable<DateTime>)));
 updateDate.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
 updateDate.AddAnnotation("Relational:ColumnName", "update_date");
-updateDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 23, 5, 35, 10, 485, DateTimeKind.Utc).AddTicks(7047));
+updateDate.AddAnnotation("Relational:DefaultValue", new DateTime(2024, 4, 23, 10, 26, 59, 479, DateTimeKind.Utc).AddTicks(2799));
 
 var version = runtimeEntityType.AddProperty(
     "Version",
@@ -314,7 +314,7 @@ version.TypeMapping = GuidTypeMapping.Default.Clone(
         storeTypeName: "uuid"));
 version.AddAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.None);
 version.AddAnnotation("Relational:ColumnName", "version");
-version.AddAnnotation("Relational:DefaultValue", new Guid("72d1b564-9a37-4ec3-a8dc-c430aa90701e"));
+version.AddAnnotation("Relational:DefaultValue", new Guid("25c26c1f-e342-4999-8978-2ff95d7854a6"));
 
 var key = runtimeEntityType.AddKey(
     new[] { id });

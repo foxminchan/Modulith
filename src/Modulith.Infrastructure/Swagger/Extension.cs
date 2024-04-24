@@ -52,7 +52,7 @@ public static class Extension
                 c.SwaggerEndpoint(url, name);
             }
 
-            c.DocumentTitle = "LegoShop";
+            c.DocumentTitle = "BookShop";
             c.DisplayRequestDuration();
             c.EnableFilter();
             c.EnableValidator();

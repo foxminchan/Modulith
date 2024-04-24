@@ -34,7 +34,7 @@ namespace Modulith.Modules.Products.Infrastructures.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 4, 23, 5, 36, 53, 738, DateTimeKind.Utc).AddTicks(9557))
+                        .HasDefaultValue(new DateTime(2024, 4, 23, 10, 27, 55, 242, DateTimeKind.Utc).AddTicks(3065))
                         .HasColumnName("created_date");
 
                     b.Property<string>("Description")
@@ -51,14 +51,14 @@ namespace Modulith.Modules.Products.Infrastructures.Data.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 4, 23, 5, 36, 53, 740, DateTimeKind.Utc).AddTicks(432))
+                        .HasDefaultValue(new DateTime(2024, 4, 23, 10, 27, 55, 243, DateTimeKind.Utc).AddTicks(4913))
                         .HasColumnName("update_date");
 
                     b.Property<Guid>("Version")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
-                        .HasDefaultValue(new Guid("a8615eca-bc8f-4fc2-bf7f-fffe0f630d30"))
+                        .HasDefaultValue(new Guid("03e65255-1f6a-4ea9-8132-a90122045dd5"))
                         .HasColumnName("version");
 
                     b.HasKey("Id")
@@ -69,83 +69,83 @@ namespace Modulith.Modules.Products.Infrastructures.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9f3d6f08-33d5-4efb-91ec-3b7b42f93678"),
-                            CreatedDate = new DateTime(2024, 4, 23, 5, 36, 53, 743, DateTimeKind.Utc).AddTicks(4451),
+                            Id = new Guid("5c4f30d3-6330-4470-b6a3-a01261b33e46"),
+                            CreatedDate = new DateTime(2024, 4, 23, 10, 27, 55, 247, DateTimeKind.Utc).AddTicks(4409),
                             Description = "Books featuring magical or supernatural elements often set in imaginary worlds.",
                             Name = "Fantasy",
-                            Version = new Guid("e921b958-ec69-4172-954d-7be5dd31552f")
+                            Version = new Guid("20f7f85b-f4e7-46fb-9804-ba999e510e57")
                         },
                         new
                         {
-                            Id = new Guid("f6bbab52-026c-4b9f-aa74-d327d39dea62"),
-                            CreatedDate = new DateTime(2024, 4, 23, 5, 36, 53, 743, DateTimeKind.Utc).AddTicks(5401),
+                            Id = new Guid("2a6e4b52-6a81-4b71-ad7f-01f4de15cd84"),
+                            CreatedDate = new DateTime(2024, 4, 23, 10, 27, 55, 247, DateTimeKind.Utc).AddTicks(5443),
                             Description = "Books exploring speculative concepts such as advanced science and technology, space exploration, or futuristic societies.",
                             Name = "Science Fiction",
-                            Version = new Guid("7300025d-a30c-4473-ab93-d04b226da470")
+                            Version = new Guid("88c9f1b6-0a72-4cf1-b1cd-d6e05585459d")
                         },
                         new
                         {
-                            Id = new Guid("ec20ecc2-b087-4cf8-842c-39a34e37a1b3"),
-                            CreatedDate = new DateTime(2024, 4, 23, 5, 36, 53, 743, DateTimeKind.Utc).AddTicks(5464),
+                            Id = new Guid("33dd7bda-2b23-47cc-bbf9-fffdc286f92c"),
+                            CreatedDate = new DateTime(2024, 4, 23, 10, 27, 55, 247, DateTimeKind.Utc).AddTicks(5505),
                             Description = "Books centered around solving a crime or unraveling a puzzle, often featuring detectives or amateur sleuths.",
                             Name = "Mystery",
-                            Version = new Guid("05af7a3f-dc4d-4631-9de8-8f0fe792fa28")
+                            Version = new Guid("553ce211-6136-4762-b96a-3deb7ba73d50")
                         },
                         new
                         {
-                            Id = new Guid("6308001a-a5cc-48c5-8c5a-3c15864e59a4"),
-                            CreatedDate = new DateTime(2024, 4, 23, 5, 36, 53, 743, DateTimeKind.Utc).AddTicks(5467),
+                            Id = new Guid("806bfc07-aabc-4a37-a892-0c811f3dc09c"),
+                            CreatedDate = new DateTime(2024, 4, 23, 10, 27, 55, 247, DateTimeKind.Utc).AddTicks(5508),
                             Description = "Books focusing on romantic relationships and emotional connections between characters.",
                             Name = "Romance",
-                            Version = new Guid("c322662a-32b2-4b77-be81-b4593a6f0482")
+                            Version = new Guid("a42b0c3f-a0d3-45cf-9804-7fb54647f086")
                         },
                         new
                         {
-                            Id = new Guid("f1a87803-7db1-45f4-b904-94cc149a7971"),
-                            CreatedDate = new DateTime(2024, 4, 23, 5, 36, 53, 743, DateTimeKind.Utc).AddTicks(5469),
+                            Id = new Guid("9d618fe1-8ba6-4801-8f71-3349b7966428"),
+                            CreatedDate = new DateTime(2024, 4, 23, 10, 27, 55, 247, DateTimeKind.Utc).AddTicks(5515),
                             Description = "Books set in the past, often blending fictional characters and events with real historical contexts.",
                             Name = "Historical Fiction",
-                            Version = new Guid("f7c226fb-6360-465f-8cab-2c2e8f4b7237")
+                            Version = new Guid("9ff398f0-1468-490e-9da9-193b69c6c6ee")
                         },
                         new
                         {
-                            Id = new Guid("314f0b35-abcf-454c-91fd-25c3ba1860cc"),
-                            CreatedDate = new DateTime(2024, 4, 23, 5, 36, 53, 743, DateTimeKind.Utc).AddTicks(5474),
+                            Id = new Guid("39bde98d-4565-4d9c-a4a6-d0e6d24ae37f"),
+                            CreatedDate = new DateTime(2024, 4, 23, 10, 27, 55, 247, DateTimeKind.Utc).AddTicks(5521),
                             Description = "Books designed to provoke excitement, tension, and suspense, often involving danger and high stakes.",
                             Name = "Thriller",
-                            Version = new Guid("cc2bc086-28fe-4ff9-a437-4f8a12180729")
+                            Version = new Guid("63cd68b4-4aee-44c0-b2d9-cbc07d3b3ceb")
                         },
                         new
                         {
-                            Id = new Guid("ce3bed7a-f0f1-40fd-962a-b6a8bc89301c"),
-                            CreatedDate = new DateTime(2024, 4, 23, 5, 36, 53, 743, DateTimeKind.Utc).AddTicks(5477),
+                            Id = new Guid("5edd6b26-67d1-45c1-9857-e2a3b7dfce82"),
+                            CreatedDate = new DateTime(2024, 4, 23, 10, 27, 55, 247, DateTimeKind.Utc).AddTicks(5523),
                             Description = "Books intended to evoke fear, dread, or terror through supernatural or psychological elements.",
                             Name = "Horror",
-                            Version = new Guid("d2ca8847-f355-4cdb-be26-843a226270d0")
+                            Version = new Guid("b859aa05-57f9-4b11-bdfe-a66944cd25d1")
                         },
                         new
                         {
-                            Id = new Guid("716b64c3-4ceb-4dc3-9530-3a3df846e696"),
-                            CreatedDate = new DateTime(2024, 4, 23, 5, 36, 53, 743, DateTimeKind.Utc).AddTicks(5479),
+                            Id = new Guid("a3285a3f-a7c4-4edc-8ef9-26627f9ac5b0"),
+                            CreatedDate = new DateTime(2024, 4, 23, 10, 27, 55, 247, DateTimeKind.Utc).AddTicks(5526),
                             Description = "Books recounting the life and experiences of a real person, often written by another individual.",
                             Name = "Biography",
-                            Version = new Guid("9f0372f7-f281-4f67-8d5c-6f6e37c23757")
+                            Version = new Guid("fab13603-1716-4b2c-a66e-5937ce5a16c6")
                         },
                         new
                         {
-                            Id = new Guid("9f5579b7-291f-406a-ace6-8b21144ca02a"),
-                            CreatedDate = new DateTime(2024, 4, 23, 5, 36, 53, 743, DateTimeKind.Utc).AddTicks(5481),
+                            Id = new Guid("05237d85-80d1-428f-a3b3-3d9630707692"),
+                            CreatedDate = new DateTime(2024, 4, 23, 10, 27, 55, 247, DateTimeKind.Utc).AddTicks(5530),
                             Description = "Books offering advice, guidance, and strategies for personal growth, improvement, and self-discovery.",
                             Name = "Self-Help",
-                            Version = new Guid("7e73d129-9630-4b70-8fee-995153121962")
+                            Version = new Guid("5ed284d7-3180-46c4-8a49-8cf6ac4c8f2d")
                         },
                         new
                         {
-                            Id = new Guid("0997b4e1-5458-4994-8c9e-07180fb79cfc"),
-                            CreatedDate = new DateTime(2024, 4, 23, 5, 36, 53, 743, DateTimeKind.Utc).AddTicks(5484),
+                            Id = new Guid("54ad2e44-2239-4782-819c-e78495029250"),
+                            CreatedDate = new DateTime(2024, 4, 23, 10, 27, 55, 247, DateTimeKind.Utc).AddTicks(5533),
                             Description = "Books providing recipes, cooking techniques, and culinary inspiration for preparing various dishes and cuisines.",
                             Name = "Cooking",
-                            Version = new Guid("5e111c82-cdd0-4389-86e6-56bbe8d77a89")
+                            Version = new Guid("cbd4fa8c-51f0-40f3-8f0e-cc1de656b454")
                         });
                 });
 
@@ -164,7 +164,7 @@ namespace Modulith.Modules.Products.Infrastructures.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 4, 23, 5, 36, 53, 744, DateTimeKind.Utc).AddTicks(4271))
+                        .HasDefaultValue(new DateTime(2024, 4, 23, 10, 27, 55, 248, DateTimeKind.Utc).AddTicks(5588))
                         .HasColumnName("created_date");
 
                     b.Property<string>("Description")
@@ -200,14 +200,14 @@ namespace Modulith.Modules.Products.Infrastructures.Data.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 4, 23, 5, 36, 53, 744, DateTimeKind.Utc).AddTicks(4889))
+                        .HasDefaultValue(new DateTime(2024, 4, 23, 10, 27, 55, 248, DateTimeKind.Utc).AddTicks(6359))
                         .HasColumnName("update_date");
 
                     b.Property<Guid>("Version")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
-                        .HasDefaultValue(new Guid("18d91a08-b23a-42f2-a021-09b878cfb4f3"))
+                        .HasDefaultValue(new Guid("f1d33def-5831-4d10-8471-2af0d1129a44"))
                         .HasColumnName("version");
 
                     b.HasKey("Id")
