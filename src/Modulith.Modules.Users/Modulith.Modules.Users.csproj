@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\Modulith.Modules.Baskets.Contracts\Modulith.Modules.Baskets.Contracts.csproj" />
 		<ProjectReference Include="..\Modulith.Modules.Orders.Contracts\Modulith.Modules.Orders.Contracts.csproj" />
 		<ProjectReference Include="..\Modulith.Modules.Users.Contracts\Modulith.Modules.Users.Contracts.csproj" />

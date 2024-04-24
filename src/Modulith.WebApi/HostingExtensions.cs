@@ -8,6 +8,7 @@ using Modulith.Infrastructure.Logging;
 using Modulith.Infrastructure.Validator;
 using Modulith.Modules.Baskets;
 using Modulith.Modules.Orders;
+using Modulith.Modules.Users;
 using Modulith.Persistence;
 
 namespace Modulith.WebApi;
@@ -25,6 +26,7 @@ public static class HostingExtensions
         builder.AddProductModule(assemblies);
         builder.AddBasketModule(assemblies);
         builder.AddOrderModule(assemblies);
+        builder.AddUserModule(assemblies);
         builder.AddMediator(assemblies);
         builder.AddEndpoints(assemblies);
     }
